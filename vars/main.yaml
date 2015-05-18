@@ -1,0 +1,12 @@
+---
+
+# nsswitch overrides
+nsswitch_group:
+  - files
+  - sss
+nsswitch_passwd:
+  - files
+  - sss
+nsswitch_shadow:
+  - files
+  - sss

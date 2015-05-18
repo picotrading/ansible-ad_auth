@@ -1,0 +1,10 @@
+---
+
+# Default authconfig options
+ad_auth_authconfig_options:
+  - "--enablesssd"
+  - "--enablesssdauth"
+  - "--enablemkhomedir"
+  - "--enablelocauthorize"
+  - "--update"
+  - "--nostart"

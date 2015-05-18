@@ -1,0 +1,21 @@
+---
+
+- name: Test distribution
+  assert:
+    that: >
+      ansible_os_family == "RedHat"
+
+- name: Install authconfig
+  yum:
+    name: authconfig
+    state: present
+
+- name: Check if authconfig did run before
+  command: "/bin/egrep '^auth.*sufficient.*pam_sss.so' /etc/pam.d/system-auth"
+  register: ad_auth_authconfig_run
+  failed_when: False
+  changed_when: False
+
+- name: Configure PAM
+  command: /usr/sbin/authconfig {{ ad_auth_authconfig_options | join(" ") }}
+  when: ad_auth_authconfig_run.rc != 0

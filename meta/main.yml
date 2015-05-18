@@ -1,0 +1,17 @@
+---
+
+galaxy_info:
+  author: Jiri Tyr
+  description: Role which helps to configure AD authentication
+  license: MIT
+  min_ansible_version: 1.9
+  platforms:
+    - name: EL
+      versions:
+        - all
+  categories:
+    - system
+dependencies:
+  - sssd
+  - oddjob
+  - nsswitch
