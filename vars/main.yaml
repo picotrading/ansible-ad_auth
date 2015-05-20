@@ -1,12 +1,15 @@
 ---
 
+# nsswitch options used to override the nsswitch defaults
+ad_auth_nsswitch_options: &ad_auth_nsswitch_options
+  - files
+  - sss
+
 # nsswitch overrides
-nsswitch_group:
-  - files
-  - sss
-nsswitch_passwd:
-  - files
-  - sss
-nsswitch_shadow:
-  - files
-  - sss
+nsswitch_automount: *ad_auth_nsswitch_options
+nsswitch_group: *ad_auth_nsswitch_options
+nsswitch_initgroups: *ad_auth_nsswitch_options
+nsswitch_netgroup: *ad_auth_nsswitch_options
+nsswitch_passwd: *ad_auth_nsswitch_options
+nsswitch_services: *ad_auth_nsswitch_options
+nsswitch_shadow: *ad_auth_nsswitch_options
